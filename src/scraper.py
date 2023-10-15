@@ -94,7 +94,7 @@ class WebScraper:
                             min_privates_price = prices_dict["Privates From"] if prices_dict.get("Privates From") is not None else "N/A"
                         )
                     )
-                print(json.dumps(entries_data, indent=1,sort_keys=True))
+                return entries_data
             else:
                 print(
                     f"Failed to retrieve the webpage. Status code: {response.status_code}"
