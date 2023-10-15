@@ -18,5 +18,6 @@ def extract_number(text):
     else:
         return None
 
+
 def create_object(**kwargs):
     return kwargs

@@ -14,12 +14,12 @@ class CSVHandler:
         return data
 
     def write_csv(self, data):
-        with open(self.file_name, 'w', newline='') as csv_file:
+        with open(self.file_name, "w", newline="") as csv_file:
             fieldnames = data[0].keys()  # Assumes all dictionaries have the same keys
             csv_writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-            
+
             # Write the header (field names)
             csv_writer.writeheader()
-            
+
             # Write the data
             csv_writer.writerows(data)
