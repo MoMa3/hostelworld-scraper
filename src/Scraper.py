@@ -22,8 +22,8 @@ class WebScraper:
         except Exception as e:
             print(f"An error occurred: {e}")
 
-    def extract_data_from_listing_cards(self,
-        listing_card, class_name, tag="span", inner_class=None
+    def extract_data_from_listing_cards(
+        self, listing_card, class_name, tag="span", inner_class=None
     ):
         try:
             element = listing_card.find("div", {"class": class_name})
@@ -37,9 +37,11 @@ class WebScraper:
                 return element.text if element else None
 
         except Exception as e:
-            print(f"Unable to extract tag:{tag} with class_name {class_name}, inner_class: {inner_class}, {e}")
+            print(
+                f"Unable to extract tag:{tag} with class_name {class_name}, inner_class: {inner_class}, {e}"
+            )
 
-    def extract_total_reviews(self,listing_card):
+    def extract_total_reviews(self, listing_card):
         try:
             property_rating = listing_card.find("div", {"class": "property-rating"})
             if property_rating:
@@ -76,10 +78,16 @@ class WebScraper:
                     listing_card=listing_card, class_name="property-description"
                 )
                 star_rating = self.extract_data_from_listing_cards(
-                    listing_card=listing_card, class_name="property-rating", tag="span", inner_class="number"
+                    listing_card=listing_card,
+                    class_name="property-rating",
+                    tag="span",
+                    inner_class="number",
                 )
                 keyword_rating = self.extract_data_from_listing_cards(
-                    listing_card=listing_card, class_name="property-rating", tag="span", inner_class="keyword"
+                    listing_card=listing_card,
+                    class_name="property-rating",
+                    tag="span",
+                    inner_class="keyword",
                 )
 
                 total_reviews = self.extract_total_reviews(listing_card)
