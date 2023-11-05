@@ -28,7 +28,7 @@ class WebScraper:
             # Parse the HTML content of the page
             soup = BeautifulSoup(response_text, "html.parser")
             # Extract and print all the links on the page
-            listing_cards = soup.find_all("a", {"class": "property-card-container"})
+            listing_cards = soup.find_all("a", {"class": "property-listing-card"})
             for listing_card in listing_cards:
                 url = listing_card.get("href")
                 name = (
@@ -105,10 +105,10 @@ class WebScraper:
                 )
             return entries_data
         except Exception as e:
-            print(f"An error occurred: {e}")
+            print(f"An error occurred: Unable to scrape {e}")
 
-    def does_next_page_exist(self):
-        response.text = self.get_page()
-        entries_data = []
-        # Parse the HTML content of the page
-        soup = BeautifulSoup(response.text, "html.parser")
+    # def does_next_page_exist(self):
+    #     response.text = self.get_page()
+    #     entries_data = []
+    #     # Parse the HTML content of the page
+    #     soup = BeautifulSoup(response.text, "html.parser")

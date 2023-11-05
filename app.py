@@ -19,5 +19,6 @@ if __name__ == "__main__":
     ]
     scraper = WebScraper(url)
     data = scraper.scrape()
+
     csv_handler = CSVHandler(f"data/{formatted_datetime}.csv")
     csv_handler.write_csv(data)
